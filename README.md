@@ -5,6 +5,48 @@ zk Vault is a decentralized platform that merges the power of machine learning a
 ## Project Description
 ZK VaultX uses VeriSync's transpiler at its core. The transpiler converts the ML models into ZKML circuits in the Plonky2 proving system. These proofs are the verified on-chain during trades. We also use a benchmarking model that takes in public data available on Subgraphs to check the performance of the model. We have used subgraphs to pull data from public Messari subgraphs like Aave V2, V3, and Compound V2, V3. Also, to consider chainlink token prices we have used substreams for price data streaming later used by the ML models. We are using a static backend to make the UI/UX more streamlined and live. Uniswap V4 hooks including ZK Hook were implemented and test cases were written to consider verification of the ZKML proof before swapping. USDC is the base currency of the platform and users can only use USDC to invest in ML models.
 
-## Contract Address
-1. Sepolia :- 0xD4BB924ecB94799ea497900E91Dc0dd316061EB3
-2. Morph :- 0x2A67Cf654F8EE1660639938BE9f3e30522A443b6
+## How to run
+
+Need Node.js and npm. Backend is `localhost:3001`, frontend is `localhost:3000`.
+
+**1. Backend**
+
+```bash
+cd backend
+npm install
+node index.js
+```
+
+Wait for `Backend listening on port 3001`.
+
+**2. Frontend**
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000). Connect MetaMask on **Sepolia**.
+
+**Contracts** (optional, needs [Foundry](https://book.getfoundry.sh/getting-started/installation))
+
+```bash
+cd contracts
+npm install
+forge test
+```
+
+**Plonky2 circuit** (optional, needs Rust)
+
+```bash
+cd plonky2-circuits
+cargo run
+```
+
+## Contract addresses
+
+Click to open the explorer:
+
+1. Sepolia — [`0xD4BB924ecB94799ea497900E91Dc0dd316061EB3`](https://sepolia.etherscan.io/address/0xD4BB924ecB94799ea497900E91Dc0dd316061EB3)
+2. Morph (Holesky) — [`0x2A67Cf654F8EE1660639938BE9f3e30522A443b6`](https://explorer-holesky.morphl2.io/address/0x2A67Cf654F8EE1660639938BE9f3e30522A443b6)
